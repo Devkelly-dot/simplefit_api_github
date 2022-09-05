@@ -41,3 +41,10 @@ On success, this will return:
        "token": "<token>"
     }
 
+When using an endpoint with a login requirement, you must include this token in the Authorization header. 
+
+Example using curl:
+    
+    curl -X GET http://localhost:8000/dayplan/dayplans/mydayplans/ -H "Authorization: Token <token>"
+ 
+ 
