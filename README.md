@@ -12,8 +12,32 @@
 2. Access admin panel on localhost:8000/admin/
 ### Token Authentication 
 This app uses token authentification, so every user is assigned a token when their account is created. 
+
 To access sensitive information or perform POST actions that affect a user's account, the user's token must be included in the Header
 #### Registration
-To Register a new account, which creates a user and assigns them a Token, use the following endpoint: 
-  
-  POST /users/register/
+Use the following endpoint to create an account:
+    
+    POST /users/register/
+    JSON {
+      "email":"<email>",
+      "username":"<username>",
+      "password":"<password>",
+    }
+    
+When successful, this will return the user's id, email, and username. 
+It will also create the User and assign them a token
+
+To access the token / login, use the following endpoint:
+
+    POST /users/login/
+    JSON {
+      "username":"<username>",
+      "password":"<password>",
+    }
+
+On success, this will return:
+
+    JSON {
+       "token": "<token>"
+    }
+
