@@ -17,7 +17,7 @@ To access sensitive information or perform POST actions that affect a user's acc
 #### Registration
 Use the following endpoint to create an account:
     
-    POST /users/register/
+    POST dayplan/users/register/
     JSON {
       "email":"<email>",
       "username":"<username>",
@@ -29,7 +29,7 @@ It will also create the User and assign them a token
 
 To access the token / login, use the following endpoint:
 
-    POST /users/login/
+    POST dayplan/users/login/
     JSON {
       "username":"<username>",
       "password":"<password>",
