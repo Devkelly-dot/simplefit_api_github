@@ -1,5 +1,29 @@
 # simplefit_api_github
-### Manage Lifts, Cardio, and Calories with no extra headache
+### Fitness Without The Bells And Whistles
+## About App / Usage
+Simplefit is an app for keeping track of your daily lifting / cardio schedule and for counting Calories
+
+### Dayplans
+Every user has 7 Dayplans (One for each day of the week) and every day plan has:
+1. **Goal** - a calorie goal for that day
+
+2. **Lifts** - a list of lifts, each with a weight, reps, and sets.
+    - ie: Bench Press, 125 lb, 5 sets of 10 reps
+   
+3. **Cardio** - a list of cardio goals with a time or distance.
+    - ie: Treadmill, 60 minutes
+    
+4. **Food** - a list of food, each with a name and a number of calories
+    - ie: Smoothie, 200 Calories
+
+Lifts and Cardios also have a completed attribute, which can be used during a workout to keep track of how many sets were completed. 
+
+
+### Logs
+Every user only has 7 Dayplans. So, they will use Monday to track what food they ate on Monday but when the next Monday rolls around they will need to reset their calories, completed sets, and completed runs all back to 0. 
+
+
+
 ## Installation
 1. Clone this rep
 2. Create virtual environment using Python 3.10.4
