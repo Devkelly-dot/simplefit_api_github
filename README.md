@@ -174,3 +174,8 @@ dayplan/dayplans/<int:pk>/lift/ requires a body of:
         "reps":<reps>,
         "complete":<complete>
     }
+
+On success, these endpoints will return a JSON object of the new lift / cardio / food's data
+
+On failure, it will return the first required field that the request body is missing
+
