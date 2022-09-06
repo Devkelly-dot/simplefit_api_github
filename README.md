@@ -78,8 +78,8 @@ Example using curl:
     curl -X GET http://localhost:8000/dayplan/dayplans/mydayplans/ -H "Authorization: Token <token>"
  
 ### Endpoints
-#### Dayplans
-**View Dayplans** 
+
+#### View Dayplans
 
 Used to get a list of user's 7 Dayplans (including each Dayplan's id and calorie goal) 
 
@@ -104,7 +104,7 @@ On Success, returns a list of the user (garnered from Token in header)'s Dayplan
         },...
     }
 
-**View Dayplan (In Detail)**
+#### View Dayplan (In Detail)
 
 Used to view one specific dayplan and all of its lift, cardio, and food objects
     
@@ -117,11 +117,12 @@ On Success returns:
         "dayplan": [{<Dayplan JSON data (seen in view Dayplans endpoint)>}],
         "food": [{<food object 1>}, {<food object 2>}, ...],
         "cardio": [{<cardio object 1>}, {<cardio object 2>}, ...],
-        "lift": [{<lift object 1>}, {<lift object 2>}, ...],
+        "lift": [{<lift object 1>}, {<lift object 2>}, ...]
     }
     
 
-**Log Dayplan**
+#### Log Dayplan
+
 Used to log a specific Dayplan
  
     Authorization Required
@@ -134,6 +135,42 @@ On success creates a log object of the Dayplan with id=pk and returns:
         "date": "YYYY-MM-DD",
         "calories": "<complete> / <goal>",
         "lift": "<lift 1 descriptive string>, <lift 2 descriptive string>, ...",
-        "cardio": "<cardio 1 descriptive string>, <cardio 2 descriptive string>, ...",
+        "cardio": "<cardio 1 descriptive string>, <cardio 2 descriptive string>, ..."
     }    
 
+### Create Lift, Cardio, Food
+
+Used to add a food, cardio, or lift object to a specific Dayplan
+
+    Authorization Required
+    POST dayplan/dayplans/<int:pk>/<object>/' (object = "food", "cardio", or "lift")
+
+POST request requires specific fields, depending on the object:
+
+dayplan/dayplans/<int:pk>/food/ requires a body of:
+
+    JSON {
+        "name":"<name>",
+        "description":"<description>",
+        "complete":<complete>
+    }
+    
+dayplan/dayplans/<int:pk>/cardio/ requires a body of:
+    
+    JSON {
+        "name":"<name>",
+        "description":"<description>",
+        "goal":<goal>,
+        "complete":<complete>
+    }
+
+dayplan/dayplans/<int:pk>/lift/ requires a body of:
+    
+    JSON {
+        "name":"<name>",
+        "description":"<description>",
+        "goal":<goal>,
+        "weight":<weight>,
+        "reps":<reps>,
+        "complete":<complete>
+    }
