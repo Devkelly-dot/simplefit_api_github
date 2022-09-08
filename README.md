@@ -22,6 +22,8 @@ Every user has 7 Dayplans (One for each day of the week) and every day plan has:
 
 Lifts and Cardios also have a completed attribute, which can be used during a workout to keep track of how many sets were completed and if the user was able to reach their goals.  
 
+Food objects only have a completed attribute, and no goal attribute. This is because each Day (aka Dayplan) has a goal attribute, aka how many calories the user wants to eat that day. Everytime the user adds a food object, the calories of that object will be counted towards the total goal of that Day. 
+
 ### Logs
 Every user only has 7 Dayplans. So, they will use the Monday Dayplan to track what food they ate on Monday, but when the next Monday rolls around they will need to reset their calories, completed sets, and completed runs all back to 0 so they can track them again. (goals will remain the same, but completed sets, miles, etc will be reset).  
 
@@ -143,7 +145,7 @@ On success creates a log object of the Dayplan with id=pk and returns:
 Used to add a food, cardio, or lift object to a specific Dayplan
 
     Authorization Required
-    POST dayplan/dayplans/<int:pk>/<object>/' (object = "food", "cardio", or "lift")
+    POST dayplan/dayplans/<int:pk>/<object>/ (object = "food", "cardio", or "lift")
 
 POST request requires specific fields, depending on the object:
 
@@ -178,4 +180,18 @@ dayplan/dayplans/<int:pk>/lift/ requires a body of:
 On success, these endpoints will return a JSON object of the new lift / cardio / food's data
 
 On failure, it will return the first required field that the request body is missing
+
+### Update Lift Cardio Food
+Used to update information on a specific lift, cardio, or food object
+
+    Authorization Required
+    POST dayplan/<object>/<int:pk>/update/ (object = "food", "cardio", or "lift")
+
+Each object has a list of optional fields that you can send in your POST request body in JSON format
+
+Lift: "name","description","goal","weight","reps","complete","measurement"
+
+Cardio: "name","description","goal","complete","measurement"
+
+Food: "name","description","complete"
 
