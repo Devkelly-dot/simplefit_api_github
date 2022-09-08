@@ -189,9 +189,9 @@ Used to update information on a specific lift, cardio, or food object
 
 Each object has a list of optional fields that you can send in your POST request body in JSON format
 
-Lift: "name","description","goal","weight","reps","complete","measurement"
+**Lift:** "name","description","goal","weight","reps","complete","measurement"
 
-Cardio: "name","description","goal","complete","measurement"
+**Cardio:** "name","description","goal","complete","measurement"
 
-Food: "name","description","complete"
+**Food:** "name","description","complete"
 
