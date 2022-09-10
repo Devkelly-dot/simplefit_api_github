@@ -29,7 +29,6 @@ urlpatterns = [
     path('lifts/<int:pk>/update/',LiftUpdate.update),
     path('lifts/<int:pk>/delete/',LiftDelete.update),
 
-
     ########## CARDIO ################
     path('cardio/<int:pk>/update/',CardioUpdate.update),
     path('cardio/<int:pk>/delete/',CardioDelete.update),
