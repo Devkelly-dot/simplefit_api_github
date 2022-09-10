@@ -187,6 +187,8 @@ Used to update information on a specific lift, cardio, or food object
     Authorization Required
     POST dayplan/<object>/<int:pk>/update/ (object = "food", "cardio", or "lift")
 
+On success, will return the new updated object in JSON format
+
 Each object has a list of optional fields that you can send in your POST request body in JSON format
 
 **Lift:** "name","description","goal","weight","reps","complete","measurement"
@@ -195,3 +197,10 @@ Each object has a list of optional fields that you can send in your POST request
 
 **Food:** "name","description","complete"
 
+### Delete Lift Cardio Food
+Used to delete specific object based on its id
+
+    Authorization Required
+    POST dayplan/<object>/<int:pk>/delete/ (object = "food", "cardio", or "lift")
+
+On Success will return the deleted object with id set to NULL and the object will no longer be in the Dayplan
