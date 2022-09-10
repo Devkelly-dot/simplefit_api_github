@@ -9,6 +9,8 @@ urlpatterns = [
 
     ############ DAY PLANS##############
     path('dayplans/<int:pk>/log/',LogDayplanViewSet.update), # create log of day for day.id = pk
+    path('logs/', MyLogViewSet.list),
+
     path('dayplans/mydayplans/',MyDayplansViewSet.list), #send back all of the user's dayplans
     path('dayplans/<int:pk>/clear/', DayplanClear.update), #delete all lift, cardio, and food for this day
     path('dayplans/<int:pk>/deletemodel/', DayplanDeleteModels.update),# deletes all of a model (Lift, Cardio, Food) for this dayplan
