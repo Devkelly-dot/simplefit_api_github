@@ -140,7 +140,7 @@ On success creates a log object of the Dayplan with id=pk and returns:
         "cardio": "<cardio 1 descriptive string>, <cardio 2 descriptive string>, ..."
     }    
 
-### Create Lift, Cardio, Food
+#### Create Lift, Cardio, Food
 
 Used to add a food, cardio, or lift object to a specific Dayplan
 
@@ -181,7 +181,7 @@ On success, these endpoints will return a JSON object of the new lift / cardio /
 
 On failure, it will return the first required field that the request body is missing
 
-### Update Lift Cardio Food
+#### Update Lift Cardio Food
 Used to update information on a specific lift, cardio, or food object
 
     Authorization Required
@@ -197,7 +197,7 @@ Each object has a list of optional fields that you can send in your POST request
 
 **Food:** "name","description","complete"
 
-### Delete Lift Cardio Food
+#### Delete Lift Cardio Food
 Used to delete specific object based on its id
 
     Authorization Required
