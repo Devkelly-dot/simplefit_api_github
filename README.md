@@ -179,6 +179,15 @@ On success creates a log object of the Dayplan with id=pk and returns:
         "cardio": "<cardio 1 descriptive string>, <cardio 2 descriptive string>, ..."
     }    
 
+#### View Logs
+
+Used to view all of the logged in user's logs
+ 
+    Authorization Required
+    GET dayplan/logs/
+
+On success returns a list of the user's logs
+
 #### Create Lift, Cardio, Food
 
 Used to add a food, cardio, or lift object to a specific Dayplan
