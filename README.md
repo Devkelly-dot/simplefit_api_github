@@ -121,7 +121,46 @@ On Success returns:
         "cardio": [{<cardio object 1>}, {<cardio object 2>}, ...],
         "lift": [{<lift object 1>}, {<lift object 2>}, ...]
     }
+
+#### Clear Dayplan
+
+Used to delete every Lift, Cardio, and Food object belonging to a specific Dayplan 
+
+    Authorization Required
+    POST dayplan/dayplans/<int:pk>/clear/
+
+On success, will return summary of Dayplan
+
+#### Delete All *object* From A Dayplan
+
+Used to delete all of one type of object from a Dayplan (delete all Food, Cardio, or Lifts from one Dayplan)
+
+    Authorization Required
+    POST dayplan/dayplans/<int:pk>/deletemodel/
+
+You must also include which model you would like to delete in the body of your request, in JSON format:
+
+    JSON{
+        "model":"<model>" ("Lift" or "Cardio")
+    }
+
+On success, will return summary of Dayplan
+
+#### Reset Dayplan Completion
+
+Used to set the complete Field to 0 on every Lift or Cardio in a specific Dayplan  
+    - If the user's Monday lifting regime doesn't change, they will want to leave the goal for every lift the same but reset the completed field 
     
+    Authorization Required
+    POST dayplan/dayplans/<int:pk>/clearmodel/
+
+You must also include which model you would like to reset in the body of your request, in JSON format:
+
+    JSON{
+        "model":"<model>" ("Lift" or "Cardio")
+    }
+
+On success, will return summary of Dayplan
 
 #### Log Dayplan
 
@@ -204,3 +243,4 @@ Used to delete specific object based on its id
     POST dayplan/<object>/<int:pk>/delete/ (object = "food", "cardio", or "lift")
 
 On Success will return the deleted object with id set to NULL and the object will no longer be in the Dayplan
+
