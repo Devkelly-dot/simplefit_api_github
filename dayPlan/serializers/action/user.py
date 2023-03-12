@@ -12,6 +12,11 @@ class CreateUserSerializer(serializers.Serializer):
     @classmethod
     def action(self, request, data):
 
+        if(data["username"] == ""):
+            return {"error":"Please enter a username"}
+        if(data["email"] == ""):
+            return {"error":"Please enter an email"}
+        
         # CREATE THE USER OBJECT WITH HASHED PASS
         if User.objects.filter(Q(username=data["username"]) | Q(email=data["email"])):
             return {"error": "Username or email taken"}
