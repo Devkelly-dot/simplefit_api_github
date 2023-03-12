@@ -5,7 +5,7 @@ from .views import *
 
 urlpatterns = [
     path('users/register/',CreateUserView.action), #creates 7 new dayplans for this user
-    path('users/login/',rest_views.obtain_auth_token),
+    path('users/login/',LoginUserView.action),
 
     ############ DAY PLANS##############
     path('dayplans/<int:pk>/log/',LogDayplanViewSet.update), # create log of day for day.id = pk
